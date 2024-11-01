@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <link rel="stylesheet" href="../css/globpr.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../css/prodect.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<style>
+  #mainImage {
+    max-width: 300px;
+    max-height: 320px;
+    /* Ajoutez cette ligne pour limiter la hauteur */
+  }
+
+  .thumbnails img {
+    max-width: 70px;
+    max-height: 80px;
+    /* Ajoutez d'autres styles supplémentaires pour les miniatures si nécessaire */
+  }
+
+  .star {
+    color: rgba(241, 196, 14, 1);
+    /* Couleur jaune */
+    font-size: 17px;
+  }
+
+  .star-rating {
+    display: inline-block;
+    font-size: 16px;
+    color: rgba(241, 196, 14, 1);
+    /* Couleur jaune */
+  }
+
+  .star-rating .star {
+    display: inline-block;
+    color: rgba(241, 196, 14, 1);
+    /* Couleur jaune */
+  }
+</style>
+
+<body>
+  <header>
+    <div class="E1">
+      <button class="bar">
+        <span class="fa-solid fa-bars"></span>
+      </button>
+      <button class="brand">
+        <span class="fa-solid fa-tag"></span>
+        <h1>Buy-it</h1>
+      </button>
+      <div class="navbar">
+        <div class="searchBox">
+          <input type="text" placeholder="what are you looking for?">
+          <button class="search">
+            <span id="loupe" class="fa-solid fa-magnifying-glass"></span>
+            <span class="text">Search</span>
+          </button>
+        </div>
+      </div>
+      <div class="navbar1">
+        <div class="searchBox1">
+          <input class="inpbo1" type="text" placeholder="Min Price">
+        </div>
+      </div>
+      <div class="navbar2">
+        <div class="searchBox2">
+          <input class="inpbo1" type="text" placeholder="Max Price">
+        </div>
+      </div>
+      <div class="navbar3">
+        <div class="searchBox3">
+          <input class="inpbo2" type="text" placeholder="Min Quantity">
+        </div>
+      </div>
+      <div class="navbar4">
+        <div class="searchBox4">
+          <input class="inpbo2" type="text" placeholder="Max Quantity">
+        </div>
+      </div>
+    </div>
+    <div class="E2">
+      <div class="navbar5">
+        <div class="searchBox5">
+          <input type="text" class="text1">
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="product">
+    <div class="frame-promoted-parent">
+      <button class="frame-promoted">
+        <div class="frame-promoted-child"></div>
+        <div class="promoted">
+          <p class="promoted1">Promoted</p>
+          <p class="blank-line">&nbsp;</p>
+        </div>
+      </button>
+      <div class="options-disponible-parent">
+        <div class="options-disponible">
+          <p class="options-disponible1">Options disponible</p>
+        </div>
+        <table id="optionsTable">
+
+          <tr id="optionsRow">
+            <!-- Les cellules d'options seront ajoutées ici -->
+          </tr>
+        </table>
+        <!-- <button class="eu-37">
+          <div class="opt-1">opt 1</div>
+        <button class="eu-38">
+          <div class="opt-2">opt 2</div>
+        </button>
+        <button class="eu-40">
+          <div class="opt-3">opt 3</div>
+        </button> -->
+      </div>
+      <button style="display:none;" class="frame-edit">
+        <a href="#">
+          <img style="display: none;" class="edit-2-icon" alt="" src="../../public/edit-2@2x.png" />
+        </a>
+      </button>
+      <div id="confirmationPopup">
+        <div class="popupContent">
+          <p>Are you sure you want to valid this product?</p>
+          <button id="confirmYes">Yes</button>
+          <button id="confirmNo">No</button>
+        </div>
+      </div>
+      <button class="frame-delet" id="valid">
+        <img class="edit-2-icon" style="display: none;" alt="" src="../../public/bin1@3x.png" />
+      </button>
+      <!-- <button class="frame-promotion">
+        <a href="#">
+          <img class="edit-3-icon" alt="" src="../../public/promotion1@3x.png" />
+        </a>
+      </button> -->
+      <!-- <div class="nb-avis" id="nbavis">(nb-avis)</div> -->
+      <div class="cont-img">
+        <div class="carousel">
+          <div class="main-image">
+            <img id="mainImage" src="" alt="Main Image">
+          </div>
+          <div class="thumbnail-container">
+            <div class="thumbnails" id="thumbnailContainer"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <img class="frame-image-principale" alt="" src="../../public/frame-image-principale@2x.png" />
+
+      <img class="frame-img3-icon" alt="" src="../../public/mask-group@2x.png" />
+
+      <img class="frame-img4-icon" alt="" src="../../public/frame-img4@2x.png" />
+
+      <img class="frame-img2-icon" alt="" src="../../public/mask-group1@2x.png" />
+
+      <img class="frame-img1-icon" alt="" src="../../public/mask-group2@2x.png" /> -->
+
+      <div class="product-namew" id="titre">Product-name</div>
+      <!-- <div class="product-name" id="titrew">Product-name</div> -->
+      <!-- <div class="mark-mark-name">Mark : <span id="mark">mark-name</span></div> -->
+      <b class="price-da" id="price">Price DA</b>
+      <!-- <div class="share-this-product">Share this product</div> -->
+      <div class="color-disponible">Color disponible
+        <table id="couleursTable1" class="color1">
+          <tr>
+            <th class="c">Colors</th>
+          </tr>
+          <tr id="couleursRow1">
+            <!-- Les cellules de couleur seront ajoutées ici -->
+          </tr>
+        </table>
+
+        <table id="couleursTable2" class="color2">
+          <tr>
+            <th class="c"></th>
+          </tr>
+          <tr id="couleursRow2">
+            <!-- Les cellules de couleur seront ajoutées ici -->
+          </tr>
+        </table>
+
+        <table id="couleursTable3" class="color3">
+          <tr>
+            <th class="c"></th>
+          </tr>
+          <tr id="couleursRow3">
+            <!-- Les cellules de couleur seront ajoutées ici -->
+          </tr>
+
+          <table id="couleursTable4" class="color4">
+            <tr>
+              <th class="c"></th>
+            </tr>
+            <tr id="couleursRow4">
+              <!-- Les cellules de couleur seront ajoutées ici -->
+            </tr>
+
+            <table id="couleursTable5" class="color5">
+              <tr>
+                <th class="c"></th>
+              </tr>
+              <tr id="couleursRow5">
+                <!-- Les cellules de couleur seront ajoutées ici -->
+              </tr>
+            </table>
+      </div>
+
+      <!-- <div class="color1">color1</div>
+      <div class="color2">color2</div>
+      <div class="color3">color3</div> -->
+      <div class="nb-articles-dispo"> <span id="prod-dispo">x</span> pièces disponibles</div>
+      <div class="ancien-da"><span id="ancien">ancien</span></div>
+      <!-- <img class="stars-icon" alt="" src="../../public/stars.svg" /> -->
+
+      <div class="frame-item"></div>
+      <div class="frame-inner"></div>
+      <div class="line-div"></div>
+      <!-- <div class="frame-child1"></div> -->
+      <div class="frame-twitter">
+        <button class="twitter-1">
+          <a>
+            <!-- <img src="../../public/twitter1@3x.png" id="shareButton" class="twitter-1"> -->
+          </a>
+        </button>
+      </div>
+      <div class="frame-fcb">
+        <button class="facebook-1">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com">
+            <!-- <img src="../../public/facebook1@3x.png" class="facebook-1"> -->
+          </a>
+        </button>
+      </div>
+      <div class="frame-insta">
+        <button class="instagram-1">
+          <a>
+            <!-- <img src="../../public/instagram1@3x.png" id="shareButton1" class="instagram-1"> -->
+          </a>
+        </button>
+      </div>
+      <div class="frame-copy-link">
+        <div class="group-copy-link">
+          <input class="group-copy-link-child" style="display: none
+          ;" id="linkInput" readonly></input>
+          <button class="group-copy-link-item" style="display: none;" id="copyButton"></button>
+          <!-- <label class="copy-link" for="copyButton">Copy link</label> -->
+        </div>
+      </div>
+      <div class="frame-worning">
+        <img class="exclamation-mark-1-icon" alt="" src="../../public/exclamationmark-1@2x.png" />
+      </div>
+      <!-- <button class="rectangle-button"></button>
+      <button class="frame-child2"></button>
+      <button class="frame-child3"></button>
+      <button class="frame-child4"></button>
+      <button class="frame-child5"></button>
+      <button class="frame-child6"></button>
+      <button class="frame-child7"></button> -->
+      <div class="frame-discount">
+        <!-- <img class="frame-discount-child" alt="" src="../../public/rectangle-57@2x.png" /> -->
+
+        <div class="div" style="text-align: center;">-<span id="reduction">x</span>%</div>
+      </div>
+
+
+    </div>
+    <div class="line-parent">
+      <div class="frame-child8"></div>
+      <div class="frame-child9"></div>
+      <div class="frame-child10"></div>
+      <div class="quantity">Quantity</div>
+      <div class="livraison">Livraison</div>
+      <div class="in-stock">In stock : <span id="nb-stock">nb-stock</span></div>
+      <div class="agence-a-name">-Type : <span id="typeliv"> T-name</span></div>
+      <!-- <div class="type-type">-Type : <span id="typeliv">Type x</span> </div> -->
+      <!-- <div class="retour-nb-retour">Retour : <span id="nb-retour">nb-retour</span></div> -->
+      <!-- <div class="classement"># <span id="classement">classement</span> </div> -->
+      <!-- <div class="in-process">In process : <span id="nb-in-process">nb-in-process</span></div> -->
+      <!-- <div class="sales-nb-sales">Sales : <span id="nb-sales">nb-sales</span></div> -->
+      <img class="ellipse-icon" alt="" src="../../public/ellipse-105.svg" />
+
+      <!-- <img class="frame-child11" alt="" src="../../public/ellipse-105.svg" /> -->
+
+      <!-- <img class="frame-child12" alt="" src="../../public/ellipse-105.svg" /> -->
+
+      <!-- <img class="frame-child13" alt="" src="../../public/ellipse-105.svg" /> -->
+    </div>
+
+    <div class="container" id="container">
+      <div class="div2">
+        <div class="inner" id="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quod odio
+          ipsam nostrum, labore eaque nam blanditiis earum amet eum inventore animi quibusdam cumque assumenda quaerat
+          placeat nemo tempora molestias.</div>
+        <div class="description1">Description</div>
+      </div>
+    </div>
+    <!-- <div class="frame-fiche-tech1" id="frame-fiche-tech1">
+      <div class="frame-fiche-tech-child"></div>
+      <div class="fiche-technique1">Fiche technique</div>
+      <table class="tableau">
+        <tr>
+          <td>type de produit</td>
+          <td id="typepr">Montre</td>
+        </tr>
+        <tr>
+          <td>Genre</td>
+          <td id="typegr">Femme</td>
+        </tr>
+        <tr>
+          <td>code barrre</td>
+          <td id="barre">838301381</td>
+        </tr>
+        <tr>
+          <td>Poids</td>
+          <td id="poids">5kg</td>
+        </tr>
+      </table>
+    </div> -->
+    <!-- <div class="frame-reviews1" - id="frame-reviews1">
+
+      <div class="frame-reviews-child"></div>
+      <div class="reviews1">Reviews</div>
+      <div class="checked-reviews-12">Moayen reviews </div>
+      <div class="comments-nb-comments">Comments <span id="nb-comment">(nb-comments)</span>
+        <div class="frame-comment">
+          <div id="commentsContainer"></div>
+        </div>
+      </div>
+      <div class="total">
+        <div class="div13">
+          <b id="moyrev">3.6</b>
+          <span class="span">/5</span>
+        </div>
+        <div class="stars-icon4" id="reviewContainer"></div>
+        <div class="reviews2"><span id="nb-reviews">12</span> Reviews</div>
+      </div>
+   
+    </div> -->
+  </div>
+
+  <br><br><br>
+  <br><br>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+  <script>
+    var ab = localStorage.getItem('admintoken')
+
+    console.log(ab)
+    // console.log(localStorage.getItem("productIdSeller"));
+
+  </script>
+  <script>
+
+
+
+
+    let titre = document.getElementById('titre');
+    let nbavis = document.getElementById('nbavis');
+    let price = document.getElementById('price');
+    let mark = document.getElementById('mark');
+    let reduction = document.getElementById('reduction');
+    let ancien = document.getElementById('ancien');
+    let proddispo = document.getElementById('prod-dispo');
+    let nbstock = document.getElementById('nb-stock');
+    let nbsales = document.getElementById('nb-sales');
+    let nbprocess = document.getElementById('nb-in-process');
+    // let nbretour = document.getElementById('nb-retour');
+    let classement = document.getElementById('classement');
+    let agence = document.getElementById('agence-a-name');
+    let typeliv = document.getElementById('typeliv');
+    let description = document.getElementById('description');
+    let typegr = document.getElementById('typegr');
+    let typepr = document.getElementById('typepr');
+    let poids = document.getElementById('poids');
+    let barre = document.getElementById('barre');
+    let moyrev = document.getElementById('moyrev');
+    let nbreviews = document.getElementById('nb-reviews');
+    let nbcomment = document.getElementById('nb-comment');
+    // let mainImage = document.getElementById('mainImage');
+
+
+
+
+    //essaie
+
+    var newTitle = "";
+    titre.textContent = newTitle;
+
+
+    //color
+    // Tableaux des couleurs HTML
+
+    //options 
+
+
+    //share tweet 
+
+    var token = localStorage.getItem('token')
+    //id
+    // let productid = "647a34d9d1deece3c633b352"
+    let productid = localStorage.getItem('productIdSeller')
+
+    // pop up
+    var valid = document.getElementById('valid');
+    var confirmationPopup = document.getElementById('confirmationPopup');
+    var confirmYes = document.getElementById('confirmYes');
+    var confirmNo = document.getElementById('confirmNo');
+    var productId; // Remplacez par l'ID réel du produit à valider
+
+    valid.addEventListener('click', function () {
+      confirmationPopup.style.display = 'block';
+    });
+
+
+    confirmNo.addEventListener('click', function () {
+      // Code à exécuter lorsque l'utilisateur clique sur "No"
+      confirmationPopup.style.display = 'none';
+    });
+
+    // Récupérer l'ID du produit courant
+    confirmYes.addEventListener('click', function () {
+      // Code à exécuter lorsque l'utilisateur clique sur "Yes"
+      confirmationPopup.style.display = 'none';
+      var ab = localStorage.getItem('admintoken')
+
+      console.log(ab)
+      let productid = localStorage.getItem('productIdSeller')
+
+      axios.patch(`https://buy-it-sigma.herokuapp.com/api/v1/products/verify/${productid}`, {}, {
+        headers: {
+          Authorization: 'Bearer ' + ab,
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+        .then(function (response) {
+
+          console.log('Produit validé avec succès');
+        })
+        .catch(function (error) {
+          console.error('Erreur lors de la validation du produit :', error);
+        });
+    });
+    axios.get('https://buy-it-sigma.herokuapp.com/api/v1/products/' + productid, {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    })
+      .then(function (response) {
+
+        var a = response.data.data;
+        console.log(a)
+        // var a = response.data;
+        titre.textContent = a.title
+        price.textContent = a.priceAfterDiscount + " $"
+        ancien.textContent = a.price + " $"
+        proddispo.textContent = a.quantity
+        description.textContent = a.description
+        nbstock.textContent = a.quantity
+        // typepr.textContent = a.category.name
+        typeliv.textContent = a.delivery.name
+        // mark.textContent = a.category
+        reduction.textContent = (((a.price - a.priceAfterDiscount) * 100) / a.price).toFixed(2)
+
+
+        var options = [];
+        var optionsRow = document.getElementById("optionsRow");
+
+        // Boucle pour parcourir le tableau color
+        for (var i = 0; i < a.color.length; i++) {
+          var color = a.color[i];
+
+          // Boucle pour parcourir le tableau size
+          for (var j = 0; j < color.size.length; j++) {
+            var taille = color.size[j].taille;
+
+            // Vérifier si la taille n'est pas déjà présente dans les options
+            if (!options.includes(taille)) {
+              // Créer une cellule pour l'option
+              var optionCell = document.createElement("td");
+              optionCell.classList.add("option-cell");
+              optionCell.innerHTML = taille;
+
+              // Ajouter la cellule d'option à la ligne
+              optionsRow.appendChild(optionCell);
+
+              // Ajouter la taille à la liste des options pour éviter les doublons
+              options.push(taille);
+            }
+          }
+        }
+
+        // Récupérer les lignes des couleurs pour chaque tableau
+        var couleursRow1 = document.getElementById("couleursRow1");
+        var couleursRow2 = document.getElementById("couleursRow2");
+        var couleursRow3 = document.getElementById("couleursRow3");
+        var couleursRow4 = document.getElementById("couleursRow4");
+        var couleursRow5 = document.getElementById("couleursRow5");
+
+        // Fonction pour ajouter les couleurs à une ligne donnée
+        function ajouterCouleurs(couleurs, row) {
+          // Boucle pour ajouter chaque couleur dans la ligne
+          for (var i = 0; i < 5; i++) {
+            if (i >= couleurs.length) {
+              break; // Sortir de la boucle si on atteint la fin du tableau
+            }
+            var couleur = couleurs[i].hexaColor;
+
+            // Créer une cellule pour la couleur
+            var couleurCell = document.createElement("td");
+            couleurCell.classList.add("couleur-cell");
+            couleurCell.style.backgroundColor = couleur;
+
+            // Ajouter la cellule de couleur à la ligne
+            row.appendChild(couleurCell);
+          }
+        }
+
+        // Parcourir le tableau color dans le backend
+        for (var i = 0; i < a.color.length; i++) {
+          var color = a.color[i];
+          var couleurs = color.colors;
+
+          // Ajouter les couleurs à chaque ligne de tableau
+          if (i === 0) {
+            ajouterCouleurs(couleurs, couleursRow1);
+          } else if (i === 1) {
+            ajouterCouleurs(couleurs, couleursRow2);
+          } else if (i === 2) {
+            ajouterCouleurs(couleurs, couleursRow3);
+          } else if (i === 3) {
+            ajouterCouleurs(couleurs, couleursRow4);
+          } else if (i === 4) {
+            ajouterCouleurs(couleurs, couleursRow5);
+          }
+        }
+        //photos 
+        // image scrool
+        var mainImage = document.getElementById('mainImage');
+        var thumbnailContainer = document.getElementById('thumbnailContainer');
+
+        // Afficher l'image principale
+        mainImage.setAttribute('src', a.imageCover);
+        mainImage.classList.add('main-image');
+        // Générer les miniatures des images
+        for (var i = 0; i < a.images.length && i <= 5; i++) {
+          var thumbnail = document.createElement('img');
+          thumbnail.setAttribute('src', a.images[i]);
+          thumbnail.setAttribute('alt', 'Thumbnail ' + i + 1);
+
+          // Ajouter la classe CSS pour le style des miniatures
+          thumbnail.classList.add('thumbnails-img');
+
+          // Gérer le clic sur la miniature
+          thumbnail.addEventListener('click', function () {
+            var currentImageSrc = mainImage.getAttribute('src');
+            var clickedImageSrc = this.getAttribute('src');
+            mainImage.setAttribute('src', clickedImageSrc);
+            this.setAttribute('src', currentImageSrc);
+          });
+
+          thumbnailContainer.appendChild(thumbnail);
+        }
+
+        console.log(a)
+      })
+      .catch(function (error) {
+        console.error('Error fetching categories:', error);
+      });
+
+
+
+  </script>
+</body>
+
+</html>
